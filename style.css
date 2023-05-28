@@ -1,0 +1,155 @@
+ body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  margin-top: 80px;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+.dark {
+  background: #000;
+  color: #aaa;
+}
+.dark .logo {
+  filter: invert(1);
+}
+h1 {
+  margin-top: 16px;
+  margin-bottom: 50px;
+}
+.container {
+  max-width: 800px;
+  text-align: left;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: auto;
+  padding-bottom: 100px;
+  position: relative;
+}
+p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.tooltip {
+  position: relative;
+  border-bottom: 1px dotted black;
+  overflow: visible; 
+  z-index: 999;
+  
+}
+.tooltip:hover {
+  color: #e7512a;
+  border-bottom: 1px dotted #e7512a;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px 10px;
+  position: absolute;
+  z-index: 999;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  overflow: visible; 
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  overflow: visible;
+  z-index: 999;
+}
+strong {
+  font-weight: 700;
+}
+.table {
+  background-color: #fafafa;
+  padding-top: 16px;
+  padding-bottom: 24px;
+  width: 100%;
+}
+
+
+.table th {
+  padding-right: 60px; 
+  padding-left: 24px;
+  font-weight: normal;
+  
+  padding-top: 5px; 
+  padding-bottom: 5px; 
+  margin-top: 0px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+ol {
+  margin-top: 0px;
+}
+
+ul {
+  margin-top: 0px;
+  list-style-type: circle;
+  padding-left: 24px;
+}
+
+th {
+  padding-bottom: 10px; 
+  padding-right: 60px;
+  margin-top: 0px;
+  font-weight: normal;
+  
+}
+
+table {
+  border-spacing: 0px;
+}
+.crossed-text {
+  text-decoration: line-through;
+  color: #aaa;
+  text-decoration-color: #ccc;
+  
+}
+.symbol
+{
+  font-family: Times New Roman;
+}
+
+a {
+  text-decoration:none;
+  color: #000;
+}
+
+a:hover{
+  color: #e7512a;
+}
+
+.pretzel-box-1 svg {
+  transition: 0.6s;
+}
+.pretzel-box-1 svg:hover {
+  transform: rotate(360deg); 
+  fill: #e7512a;
+}
+.connectWallet {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+}
+
+tc-root * {
+  font-family: 'Roboto Mono', monospace;
+}
