@@ -1,38 +1,68 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const shareCost = 742;
-  const currentReward = 36;
-  const amountOfBurnedShares = 2365;
-  
-  
-  const fillInPageInfo = function () {
-    const shareCostNode = document.querySelector('#shareCost')
-    const currentRewardNode = document.querySelector('#currentReward')
-    const amountOfBurnedSharesNode = document.querySelector('#amountOfBurnedShares')
-    // const lastTreasuryContractsNode = document.querySelector('#lastTreasuryContracts')
-
-    shareCostNode.textContent = formatNumber(shareCost)
-    currentRewardNode.textContent = formatNumber(currentReward)
-    amountOfBurnedSharesNode.textContent = formatNumber(amountOfBurnedShares)
-    // lastTreasuryContractsNode.innerHTML = lastTreasuryContracts()
+const contractAddressSlice = (contractAddress) => {
+  if(typeof contractAddress !== 'string' || contractAddress.length !== 48) {
+    throw new Error('contractAddress should be string type and 48 symbols length')
   }
+  
+  return contractAddress.slice(0, 6) + '...' + contractAddress.slice(42, 48)
+}
 
-  const contractAddressSlice = function (contractAddress) {
-    if(typeof contractAddress !== 'string' || contractAddress.length !== 48) {
-      throw new Error('contractAddress should be string type and 48 symbols length')
+const formatNumber = (number) => {
+  return new Intl.NumberFormat('en-US').format(number)
+}
+
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+  // VALUES
+  const values = await getSomeRealShit()
+  const inviteContractAddress = localStorage.getItem("userRefAddressFriendly")
+  
+  // NODES
+  const copyInviteContractButton = document.querySelector('#copyContractButton')
+  const getShareButton = document.querySelector('#getShareButton')
+  
+  const fillInPageInfo = () => {
+    console.log(values)
+    for (const key in values) {
+      if (Object.hasOwnProperty.call(values, key)) {
+        const value = values[key]
+
+        try {
+          const dataVars = document.querySelectorAll(`[data-var=${key}]`)
+          dataVars.forEach(element => {
+            element.textContent = formatNumber(value)
+          })
+        } catch (err) {
+          console.error(err)
+        }
+      }
     }
+
+    copyInviteContractButton.textContent = contractAddressSlice(inviteContractAddress) + ' ❐'
+  }
+
+  const strikeThroughTheTable = () => {
     
-    return contractAddress.slice(0, 6) + '...' + contractAddress.slice(42, 48)
   }
 
-  const formatNumber = function(number) {
-    return new Intl.NumberFormat('en-US').format(number)
-  }
+  const addEventListeners = () => {
+    copyInviteContractButton.addEventListener('click', (clickEvent) => {
+      clickEvent.preventDefault()
+      const prevTextContent = copyInviteContractButton.textContent
 
-  const lastTreasuryContracts = function () {
-    const lastTreasuryContracts = [
-      ''
-    ]
+      copyToClipboard(inviteContractAddress)
+      copyInviteContractButton.innerHTML = prevTextContent + '<small class="smallCopy"> copied</small>'
+      setTimeout(() => {
+        copyInviteContractButton.textContent = prevTextContent
+      }, 2000)
+    })
+
+    // getShareButton.addEventListener('click', (clickEvent) => {
+    //   clickEvent.preventDefault()
+    //   getShareTransaction()
+    // })
   }
 
   fillInPageInfo()
+  addEventListeners()
 })

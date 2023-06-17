@@ -28,71 +28,64 @@
     </h1>
 
     <button class="connectWallet" id="connectWallet"></button>
-    <table style="width: 100%;">
-      <tbody>
-        <tr style="width: 100%;">
-          <th style="width: 100%; vertical-align: top; margin: 0px; padding-right: 20px;">
-            <p style="margin-top: 0px;"> Sharecoin is a&nbsp;digital currency that operates on&nbsp;smart-contracts and&nbsp;follow the&nbsp;principles of&nbsp;the&nbsp;decentralization. Anyone can get $SHARE as&nbsp;reward for&nbsp;inviting other people into the &nbsp;decentralized finances. 
-            </p>
+    
+    <main>
+      <p>Sharecoin is a&nbsp;digital currency that operates on&nbsp;smart-contracts and&nbsp;follow the&nbsp;principles of&nbsp;the&nbsp;decentralization. Anyone can get $SHARE as&nbsp;reward for&nbsp;inviting other people into the &nbsp;decentralized finances.</p>
+      
+      <br>
+      
+      <p class="inviteContract">
+        Invitation contract
+        <button class="inviteContractCopy" id="copyContractButton">checking blockchain...</button>
+      </p>
+      <div style="width: 600px; display:flex">
+        To get $SHARE and generate your invitation contract, you need to send 10 $TON from your wallet. <br>
+        Please make sure that you are sending coins from non-custodial wallet
+        <div class="getShare">
+          <button id="getShareButton" class="getShareButton">Get SHARE</button>
+          Contribution: 10 TON
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <section style="display: flex; gap: 50px;">
+        <div>
+          <p>   
+            <strong><span data-var="peopleInvited">parsing...</span></strong>
+            <br> 
+            People invited
+          </p>
+          <p>
+            <strong><span data-var="reward">parsing...</span> $SHARE</strong>
             <br>
-            <h1>
-              Invitation contract Eqx9d1......C9ad ❐
-            </h1>
-            
-            <div style="width: 600px; display:flex">
-              To get $SHARE and generate your invitation contract, you need to send 10 $TON from your wallet. <br>
-              Please make sure that you are sending coins from non-custodial wallet
-              <div style="width: 350px; padding-left: 20px; font-size: 12px;"><a style="font-size: 20px;">[Get SHARE] </a></br>
-                Contribution: 10 TON
-                
-              </div>
-            </div>
-            <br><br>
-            <div style="width: 100%; height: 1px; background-color: #333"> </div>
-            <br><br>
-            <table style="width: 100%;">
-              <tbody>
-                <tr>
-                  <th style="width: 50%; vertical-align: top;">
-                    <p style="margin-top: 0px;">   
-                      <strong><span id="shareCost">742</span> </strong>
-                      <br> 
-                      People invited
-                    </p>
-                    <p>
-                      <strong><span id="currentReward">36</span> $SHARE</strong>
-                      <br>
-                      Current reward per 1 invite
-                    </p>
-                    <p>
-                      <strong><span id="amountOfBurnedShares">2,365</span> $SHARE</strong>
-                      <br> 
-                      Burned already
-                    </p>
-                  </th>
-                  
-                  
-                  <th style="width: 50%; vertical-align: top;">
-                    <p style="margin-top: 0px;">   
-                      <strong><span id="shareCost">1,881,351(5%) </span> </strong>
-                      <br> 
-                      $SHARE minted
-                    </p>
-                    <p>
-                      <strong><span id="currentReward">88,013</span> $SHARE</strong>
-                      <br>
-                      $TON on Treasury Contract
-                    </p>
-                    <p>
-                      <strong><span id="amountOfBurnedShares">67,108,864</span> $SHARE</strong>
-                      <br> 
-                      Total emission
-                    </p>
-                    
-                  </th></tr>
-                </tbody>
-              </table>
-              
+            Current reward per 1 invite
+          </p>
+          <p>
+            <strong><span data-var="burned">parsing...</span> $SHARE</strong>
+            <br> 
+            Burned already
+          </p>
+        </div>
+        <div>
+          <p>   
+            <strong><span data-var="sharesMinted">parsing...</span> $SHARE</strong>
+            <br> 
+            Minted
+          </p>
+          <p>
+            <strong><span data-var="treasuryFund">parsing...</span> $TON</strong>
+            <br>
+            On Treasury Contract
+          </p>
+          <p>
+            <strong><span data-var="totalEmission">parsing...</span> $SHARE</strong>
+            <br> 
+            Total emission
+          </p>
+        </div>
+      </section>
+    </main>
               
               <br />
               <h3>
@@ -105,13 +98,13 @@
          │      │                       │    │  INVITATION CONTRACT  │
          │      └───────────┬───────────┘    │                       │
          │                  │                └────────────▲──────────┘
-     1024 SHARE           10 TON                          │
+     <span data-var="reward">1024</span> SHARE           10 TON                          │
          │                  │                             │
          │      ┌───────────▼───────────┐                 │
          │      │                       ├────GENERATED────┘
          │      │        ALICE'S        │
          └──────┤  INVITATION CONTRACT  │
-                │                       ├────1024 SHARE───┐
+                │                       ├────<span data-var="reward">1024</span> SHARE───┐
                 └───────────┬───────────┘                 │
                             │                             │
                           10 TON                          │
@@ -125,78 +118,6 @@
               <br />
               
               <h3>
-                New Invitation Contracts:
-              </h3>
-              
-              <table>
-                <tbody>
-                  <tr>
-                    <th style="width:58%">
-                      <a href="./contract.html"> 
-                        EQAOQ199...adfadsi5N <span class="symbol">➯</span>
-                      </a>
-                    </th>
-                    <th>
-                      <a href="./contract.html"> 
-                        EQAOQ199...adfadsi5N <span class="symbol">➯</span>
-                      </a>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>
-                      <a href="./contract.html"> 
-                        EQAOQ199...adfadsi5N <span class="symbol">➯</span>
-                      </a>
-                    </th>
-                    <th>
-                      <a href="./contract.html"> 
-                        EQAOQ199...adfadsi5N <span class="symbol">➯</span>
-                      </a>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th style="width:50%">
-                      <a href="./contract.html"> 
-                        EQAOQ199...adfadsi5N <span class="symbol">➯</span>
-                      </a>
-                    </th>
-                    <th>
-                      <a href="./contract.html"> 
-                        EQAOQ199...adfadsi5N <span class="symbol">➯</span>
-                      </a>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>
-                      <a href="./contract.html"> 
-                        EQAOQ199...adfadsi5N <span class="symbol">➯</span>
-                      </a>
-                    </th>
-                    <th>
-                      <a href="./contract.html"> 
-                        EQAOQ199...adfadsi5N <span class="symbol">➯</span>
-                      </a>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>
-                      <a href="./contract.html"> 
-                        EQAOQ199...adfadsi5N <span class="symbol">➯</span>
-                      </a>
-                    </th>
-                    <th>
-                      <a href="./contract.html"> 
-                        EQAOQ199...adfadsi5N <span class="symbol">➯</span>
-                      </a>
-                    </th>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <br />
-              
-              <h3>
                 Guaranteed exchange $SHARE to $TON
               </h3>
               <p>
@@ -207,8 +128,7 @@
                 You always can exchange your $SHARE to $TON with a following rate: [Total issued $SHARE] / [Total collected $TON]
               </p>
               <p>
-                Current rate: <strong> 120 SHARE for 1 TON </strong> 
-                
+                Current rate: <strong> <span data-var="amountOfShareForOneTon">counting...</span> SHARE for 1 TON </strong> 
               </p>
               
               <pre style="color: #fff;font-family: courier new;font-size: 14px;word-wrap: break-word;white-space: pre-wrap;">
@@ -218,7 +138,7 @@
                 │                       │      │
                 └───────────┬───────────┘      │
                             │                  │
-                        1200 SHARE           10 TON
+                <span data-var="amountOfShareForOneTon">counting...</span>           10 TON
                             │                  │
                 ┌───────────▼───────────┐      │
                 │                       │      │
@@ -226,7 +146,7 @@
                 │                       │
                 └───────────┬───────────┘
                             │
-                        1200 SHARE
+                <span data-var="amountOfShareForOneTon">counting...</span>
                             │
                 ┌───────────▼───────────┐
                 │                       │
@@ -241,17 +161,12 @@
                 </h3>
                 <p>
                   Reward size per invited person depends on the amount of people joined SHARE. </br>
-                  
                   Halving happens when SHARE emission reaches a certain amount.
-                  
-                </br>
               </p>
               <p style="color: #fff";>
                 The next halving: 2^(12+n) SHARE, where n = number of halving
               </p>
-            </br>
-            
-            
+            </br>            
             
             <table cellspacing="0" class="table">
               <tbody>
@@ -269,9 +184,7 @@
                 <th class="crossed-text"> 
                   8,192 
                 </th>
-                <th>  
-                  
-                </th>
+                <th></th>
                 <th class="crossed-text">  
                   8,192
                 </th>
@@ -280,9 +193,7 @@
                 <th class="crossed-text"> 
                   16,384
                 </th>
-                <th>  
-                  
-                </th>
+                <th></th>
                 <th class="crossed-text">  
                   4,096
                 </th>
@@ -291,9 +202,7 @@
                 <th class="crossed-text"> 
                   32,768 
                 </th>
-                <th>  
-                  
-                </th>
+                <th></th>
                 <th class="crossed-text">  
                   2,048
                 </th>
@@ -302,9 +211,7 @@
                 <th class="crossed-text"> 
                   65,536 
                 </th>
-                <th>  
-                  
-                </th>
+                <th></th>
                 <th class="crossed-text">  
                   1,024
                 </th>
@@ -313,9 +220,7 @@
                 <th class="crossed-text"> 
                   131,072 
                 </th>
-                <th>  
-                  
-                </th>
+                <th></th>
                 <th class="crossed-text">  
                   512
                 </th>
@@ -324,21 +229,19 @@
                 <th class="crossed-text"> 
                   262,144
                 </th>
-                <th>  
-                  
-                </th>
+                <th></th>
                 <th class="crossed-text">  
                   256
                 </th>
               </tr> 
               <tr style="background: #222;">
-                <th > 
+                <th> 
                   524,288
                 </th>
                 <th>  
                   <span class="symbol"> ☜</span> we are here <span class="symbol"> ☞</span>
                 </th>
-                <th >  
+                <th>  
                   128
                 </th>
               </tr> 
@@ -346,76 +249,62 @@
                 <th> 
                   1,048,576 
                 </th>
+                <th></th>
                 <th>  
-                  
-                </th>
-                <th >  
                   64
                 </th>
               </tr> 
               <tr>
-                <th > 
+                <th> 
                   2,097,152
                 </th>
+                <th></th>
                 <th>  
-                  
-                </th>
-                <th >  
                   32
                 </th>
               </tr> 
               <tr>
-                <th > 
+                <th> 
                   4,194,304
                 </th>
+                <th></th>
                 <th>  
-                  
-                </th>
-                <th >  
                   16
                 </th>
               </tr> 
               <tr>
-                <th > 
+                <th> 
                   8,388,608
                 </th>
-                <th>  
-                  
-                </th>
+                <th></th>
                 <th>  
                   8
                 </th>
               </tr> 
               <tr>
-                <th > 
+                <th> 
                   16,777,216
                 </th>
+                <th></th>
                 <th>  
-                  
-                </th>
-                <th >  
                   4
                 </th>
               </tr> 
               <tr>
-                <th > 
+                <th> 
                   33,554,432
                 </th>
-                <th>  
-                  
-                </th>
+                <th></th>
                 <th>  
                   2
                 </th>
               </tr> 
               
               <tr>
-                <th > 
+                <th> 
                   67,108,864
                 </th>
-                <th>  
-                  
-                </th>
+                <th></th>
                 <th>  
                   1
                 </th>
@@ -426,7 +315,9 @@
       </body>
       <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
       <script src="./tonweb.js"></script>
-      <script src="./script.js"></script>
+      <script src="./main.js"></script>
+      <script src="./blockchain.js"></script>
+      <script src="./utils.js"></script>
       <script src="./view.js"></script>
       </html>
       

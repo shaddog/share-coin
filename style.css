@@ -81,10 +81,8 @@ strong {
   padding-bottom: 24px;
   width: 100%;
   border: 1px solid;
-  border-color: #333;
-  
+  border-color: #333;  
 }
-
 
 .table th {
   padding-right: 0px; 
@@ -94,7 +92,7 @@ strong {
   padding-top: 5px; 
   padding-bottom: 5px; 
   margin-top: 0px;
-  alight: top;
+  vertical-align: top;
 }
 
 li {
@@ -121,6 +119,7 @@ th {
 
 table {
   border-spacing: 0px;
+  width: 100%;
 }
 .crossed-text {
   text-decoration: line-through;
@@ -166,4 +165,63 @@ h3 {
  color: #fff;
  font-weight: 700;
  padding-top: 20px;
+}
+
+.getShare {
+  width: 350px;
+  padding-left: 20px; 
+  font-size: 12px;
+}
+.getShareButton {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 0.25rem 0.5rem;
+  background-color: transparent;
+  border: 1px solid #aeb3bc;
+  color: white;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  -webkit-box-align: center;
+  align-items: center;
+  display: inline-flex;
+  border-color: #aeb3bc;
+  box-shadow: 3px 3px 0 #153c8a;
+  position: relative;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 10px;
+}
+.getShareButton:active {
+  box-shadow: none;
+  transform: translate3d(3px, 3px, 3px);
+}
+
+.getShareButton:hover {
+  color: #1763fd;
+  border-color: #1763fd;
+  background-color: #1763fd1a;
+}
+
+.inviteContract { 
+  font-size: 2em;
+}
+.inviteContractCopy {
+  font-size: inherit;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+.smallCopy {
+  font-size: 0.5em;
+  vertical-align: top;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #333;
+  margin: 35px auto;
+  border: none;
 }
