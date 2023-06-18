@@ -107,7 +107,7 @@ a:hover{
 }
 
 tc-root * {
-  font-family: 'Courier New', monospace;
+  font-family: 'Courier New', monospace !important;
 }
 
 h3 {
@@ -122,7 +122,7 @@ h3 {
   font-size: 12px;
 }
 [data-tc-connect-button] {
-  font-family: 'Courier new', monospace !important;
+  text-transform: uppercase;
   box-shadow: 3px 3px 0 #31A6F5 !important;
   background: transparent !important;
   border: 1px solid #aeb3bc !important;
@@ -142,7 +142,12 @@ h3 {
   box-shadow: none !important;
   transform: translate3d(3px, 3px, 3px) !important;
 }
-.getShareButton, [data-tc-connect-button] {
+
+.getShareSection {
+  /* width: 600px; */
+  /* display: flex; */
+}
+.getShareButton {
   font-family: inherit;
   font-size: 18px;
   font-weight: 400;
@@ -191,6 +196,25 @@ h3 {
   border: none;
 }
 
+@media (min-width: 666px) {
+  .sectionStats {
+    display: flex; 
+    gap: 50px;
+  }
+}
+  
+.figure {
+  color: #fff;
+  font-family: courier new;
+  font-size: 8px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+@media (min-width: 666px) {
+  .figure {
+    font-size: 14px;
+  }
+}
 
 .halvingTable {
   border: 1px solid #333;
@@ -199,13 +223,13 @@ h3 {
 .row {
   display: flex;
   justify-content: space-between;
-  /* text-align: left; */
   padding: 6px 20px;
   text-decoration: line-through;
 }
-.row > * {
-  flex-basis: 30%;
-  /* flex: 1 0 60%; */
+@media (min-width: 666px) {
+  .row > * {
+    flex-basis: 35%;
+  }
 }
 .rowHead {
   font-weight: 700;
@@ -216,7 +240,7 @@ h3 {
   content: '☜ we are here ☞';
   position: absolute;
   top: 5px;
-  left: 35%;
+  left: 30%;
 }
 .rowActive {
   position: relative;
