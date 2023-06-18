@@ -39,10 +39,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     copyInviteContractButton.textContent = contractAddressSlice(inviteContractAddress) + ' ❐'
+    strikeThroughTheTable(values['reward'])
   }
 
-  const strikeThroughTheTable = () => {
-    
+  const strikeThroughTheTable = (currentReward) => {
+    const rewardPerWallet = Number(currentReward) / 2;
+    document.querySelector(`[data-share-reward="${rewardPerWallet}"]`).classList.add('rowActive')
   }
 
   const addEventListeners = () => {

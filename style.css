@@ -173,23 +173,18 @@ h3 {
   font-size: 12px;
 }
 .getShareButton {
+  font-family: inherit;
   font-size: 18px;
   font-weight: 400;
-  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
   padding: 0.25rem 0.5rem;
+  margin: 10px;
+  color: white;
   background-color: transparent;
   border: 1px solid #aeb3bc;
-  color: white;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  -webkit-box-align: center;
-  align-items: center;
-  display: inline-flex;
-  border-color: #aeb3bc;
   box-shadow: 3px 3px 0 #153c8a;
-  position: relative;
-  text-transform: uppercase;
   cursor: pointer;
-  margin: 10px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 .getShareButton:active {
   box-shadow: none;
@@ -224,4 +219,40 @@ h3 {
   background-color: #333;
   margin: 35px auto;
   border: none;
+}
+
+
+.halvingTable {
+  border: 1px solid #333;
+  padding: 15px 0;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  /* text-align: left; */
+  padding: 6px 20px;
+  text-decoration: line-through;
+}
+.row > * {
+  flex-basis: 30%;
+  /* flex: 1 0 60%; */
+}
+.rowHead {
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+.rowActive::after {
+  content: '☜ we are here ☞';
+  position: absolute;
+  top: 5px;
+  left: 35%;
+}
+.rowActive {
+  position: relative;
+  background: #222;
+  text-decoration: none;
+}
+.rowActive ~ .row {
+  text-decoration: none;
 }
