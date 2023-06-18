@@ -1,6 +1,10 @@
 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
   manifestUrl: 'https://share.fra1.cdn.digitaloceanspaces.com/manifest.json',
-  buttonRootId: 'connectWallet'
+  buttonRootId: 'connectWallet',
+  uiPreferences: {
+    theme: 'DARK',
+    borderRadius: 's'
+  }
 });
 
 const tonweb = new TonWeb(new TonWeb.HttpProvider('https://toncenter.com/api/v2/jsonRPC', {apiKey: '95f7d69921d097025342890a6c4658b60902e857db60b8e8b60be3d8f1a2ad4f'}));
