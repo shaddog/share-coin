@@ -17,12 +17,14 @@ body {
 .dark .logo {
   filter: invert(1);
 }
+
 h1 {
   margin-top: 24px;
   margin-bottom: 36px;
   color: #fff;
   font-weight: 500;
 }
+
 .container {
   max-width: 700px;
   text-align: left;
@@ -32,10 +34,12 @@ h1 {
   padding-bottom: 100px;
   position: relative;
 }
+
 p {
   margin-bottom: 20px;
   line-height: 1.5;
 }
+
 .tooltip {
   position: relative;
   border-bottom: 1px dotted black;
@@ -72,68 +76,13 @@ p {
   overflow: visible;
   z-index: 999;
 }
+
 strong {
   font-weight: 700;
 }
-.table {
-  background-color: #000;
-  padding-top: 16px;
-  padding-bottom: 24px;
-  width: 100%;
-  border: 1px solid;
-  border-color: #333;  
-}
-
-.table th {
-  padding-right: 0px; 
-  padding-left: 24px;
-  font-weight: normal;
-  
-  padding-top: 5px; 
-  padding-bottom: 5px; 
-  margin-top: 0px;
-  vertical-align: top;
-}
-
-li {
-  margin-bottom: 10px;
-}
-
-ol {
-  margin-top: 0px;
-}
-
-ul {
-  margin-top: 0px;
-  list-style-type: circle;
-  padding-left: 24px;
-}
-
-th {
-  padding-bottom: 10px; 
-  padding-right: 20px;
-  margin-top: 0px;
-  font-weight: normal;
-  
-}
-
-table {
-  border-spacing: 0px;
-  width: 100%;
-}
-.crossed-text {
-  text-decoration: line-through;
-  color: #ccc;
-  text-decoration-color: #ccc;
-  
-}
-.symbol
-{
-  font-family: Times New Roman;
-}
 
 a {
-  text-decoration:none;
+  text-decoration: none;
   color: #fff;
 }
 
@@ -152,8 +101,8 @@ a:hover{
 .connectWallet {
   background: #000;
   border: none;
-  position: absolute;
-  top: 12px;
+  position: fixed;
+  top: 20px;
   right: 20px;
 }
 
