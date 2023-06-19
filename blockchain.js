@@ -20,10 +20,10 @@ const getShareTransaction = async () => {
   const transaction = {
     validUntil: Date.now() + 1000000000,
     messages: [
-        {
-            address: mainContractRaw,
-            amount: "10000000"
-        },
+      {
+        address: mainContractRaw,
+        amount: "10000000"
+      },
     ]
   }
 
@@ -41,6 +41,8 @@ const getShareTransaction = async () => {
 }
 
 const getRefAddress = async (rawAddress) => {
+  if(localStorage.getItem("userRefAddressFriendly")) return localStorage.getItem("userRefAddressFriendly")
+
   const cell = new tonweb.boc.Cell()
   cell.bits.writeAddress(new tonweb.Address(rawAddress))
   
@@ -51,18 +53,20 @@ const getRefAddress = async (rawAddress) => {
     mainContractRaw,
     'get_ref_address',
     [['tvm.Slice', bocInString]]
-    )
+  )
     
-    const responseBytes = tonweb.utils.base64ToBytes(response.stack[0][1].bytes)
-    const responseCell = tonweb.boc.Cell.oneFromBoc(responseBytes)
-    const responseSlice = responseCell.beginParse()
-    const userRefAddress = responseSlice.loadAddress()
-    const userRefAddressRaw = userRefAddress.toString()
-    const userRefAddressFriendly = userRefAddress.toString(true, true, true, false) //check params https://github.com/toncenter/tonweb/blob/master/src/utils/Address.js#L109
-    
-    
-    if(!localStorage.getItem("userRefAddressRaw")) localStorage.setItem("userRefAddressRaw", userRefAddressRaw)
-    if(!localStorage.getItem("userRefAddressFriendly")) localStorage.setItem("userRefAddressFriendly", userRefAddressFriendly)
+  const responseBytes = tonweb.utils.base64ToBytes(response.stack[0][1].bytes)
+  const responseCell = tonweb.boc.Cell.oneFromBoc(responseBytes)
+  const responseSlice = responseCell.beginParse()
+  const userRefAddress = responseSlice.loadAddress()
+  // const userRefAddressRaw = userRefAddress.toString()
+  const userRefAddressFriendly = userRefAddress.toString(true, true, true, false) //check params https://github.com/toncenter/tonweb/blob/master/src/utils/Address.js#L109
+  
+  
+  // if(!localStorage.getItem("userRefAddressRaw")) localStorage.setItem("userRefAddressRaw", userRefAddressRaw)
+  localStorage.setItem("userRefAddressFriendly", userRefAddressFriendly)
+
+  return userRefAddressFriendly
 }
   
 const getSomeRealShit = async () => {
@@ -121,16 +125,17 @@ const getSomeRealShit = async () => {
   someRealShit['reward'] = tonweb.utils.fromNano((parseInt(getCurrentReward.stack[0][1], 16)/2).toString())
   someRealShit['oneShareInTonRate'] = tonweb.utils.fromNano(parseInt(getCurrentRate.stack[0][1], 16).toString())
   someRealShit['amountOfShareForOneTon'] = 1 / Number(someRealShit['oneShareInTonRate'])
-  
+
   return someRealShit
 }
       
 const unsubscribe = tonConnectUI.onStatusChange(
   async (walletInfo) => {
-    await getRefAddress(walletInfo.account.address)
+    // await getRefAddress(walletInfo.account.address)
   }
-  );
-  (async function noName() {
-    // await retrieveHistory(mainContract)
-    // await getSomeRealShit()
-  })()
+);
+
+(async function noName() {
+  // await retrieveHistory(mainContract)
+  // await getSomeRealShit()
+})()

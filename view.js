@@ -15,11 +15,11 @@ const formatNumber = (number) => {
 document.addEventListener("DOMContentLoaded", async () => {
   // VALUES
   const values = await getSomeRealShit()
-  const inviteContractAddress = localStorage.getItem("userRefAddressFriendly")
   
   // NODES
-  const copyInviteContractButton = document.querySelector('#copyContractButton')
+  const getShareSection = document.querySelector('.getShareSection')
   const getShareButton = document.querySelector('#getShareButton')
+  const copyInviteContractButton = document.querySelector('#copyContractButton')
   
   const fillInPageInfo = () => {
     console.log(values)
@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
 
-    copyInviteContractButton.textContent = contractAddressSlice(inviteContractAddress) + ' ❐'
     strikeThroughTheTable(values['reward'])
   }
 
@@ -46,24 +45,37 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelector(`[data-share-reward="${currentReward}"]`).classList.add('rowActive')
   }
 
-  const addEventListeners = () => {
+  const addEventListeners = (refAddr) => {
     copyInviteContractButton.addEventListener('click', (clickEvent) => {
       clickEvent.preventDefault()
       const prevTextContent = copyInviteContractButton.textContent
 
-      copyToClipboard(inviteContractAddress)
+      copyToClipboard(refAddr)
       copyInviteContractButton.innerHTML = prevTextContent + '<small class="smallCopy"> copied</small>'
       setTimeout(() => {
         copyInviteContractButton.textContent = prevTextContent
       }, 2000)
     })
 
-    // getShareButton.addEventListener('click', (clickEvent) => {
-    //   clickEvent.preventDefault()
-    //   getShareTransaction()
-    // })
+    getShareButton.addEventListener('click', (clickEvent) => {
+      clickEvent.preventDefault()
+      getShareTransaction()
+    })
   }
 
+  const checkRef = async () => {
+    if(window.location.hash) {
+      console.log(window.location.hash.split('#')[1])
+      const refAddr = await getRefAddress(window.location.hash.split('#')[1])
+   
+      if (refAddr) {
+        copyInviteContractButton.textContent = contractAddressSlice(refAddr) + ' ❐'
+        addEventListeners(refAddr)
+        getShareSection.style.display = 'block'
+      }
+    }
+  }
+
+  await checkRef()
   fillInPageInfo()
-  addEventListeners()
 })
