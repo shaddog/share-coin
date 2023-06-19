@@ -117,9 +117,11 @@ h3 {
 }
 
 .getShare {
-  width: 350px;
-  padding-left: 20px; 
+  text-align: center;
+}
+.getShare p {
   font-size: 12px;
+  margin: 0 auto;
 }
 [data-tc-connect-button] {
   text-transform: uppercase;

@@ -117,12 +117,11 @@ const getSomeRealShit = async () => {
   someRealShit['sharesMinted'] = tonweb.utils.fromNano(parseInt(getBalances.stack[0][1], 16).toString())
   someRealShit['burned'] = tonweb.utils.fromNano(parseInt(getBalances.stack[1][1], 16).toString())
   someRealShit['treasuryFund'] = tonweb.utils.fromNano(parseInt(getBalances.stack[2][1], 16).toString())
-  // someRealShit['totalEmission'] = parseInt(getBalances.stack[3][1], 16).toString()
-  someRealShit['reward'] = tonweb.utils.fromNano(parseInt(getCurrentReward.stack[0][1], 16).toString())
+  // someRealShit['totalEmission'] = tonweb.utils.fromNano(parseInt(getBalances.stack[3][1], 16).toString())
+  someRealShit['reward'] = tonweb.utils.fromNano((parseInt(getCurrentReward.stack[0][1], 16)/2).toString())
   someRealShit['oneShareInTonRate'] = tonweb.utils.fromNano(parseInt(getCurrentRate.stack[0][1], 16).toString())
   someRealShit['amountOfShareForOneTon'] = 1 / Number(someRealShit['oneShareInTonRate'])
-    
-  // console.log(someRealShit)
+  
   return someRealShit
 }
       

@@ -43,8 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   const strikeThroughTheTable = (currentReward) => {
-    const rewardPerWallet = Number(currentReward) / 2;
-    document.querySelector(`[data-share-reward="${rewardPerWallet}"]`).classList.add('rowActive')
+    document.querySelector(`[data-share-reward="${currentReward}"]`).classList.add('rowActive')
   }
 
   const addEventListeners = () => {
