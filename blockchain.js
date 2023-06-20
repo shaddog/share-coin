@@ -8,8 +8,8 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 });
 
 const tonweb = new TonWeb(new TonWeb.HttpProvider('https://toncenter.com/api/v2/jsonRPC', {apiKey: '95f7d69921d097025342890a6c4658b60902e857db60b8e8b60be3d8f1a2ad4f'}));
-const mainContract = 'EQBNK2J2-muuuvxXXFZ9kmi98DJTF_LZt_SdrrlD6DEMjab4'
-const mainContractRaw = '0:4d2b6276fa6baebafc575c567d9268bdf0325317f2d9b7f49daeb943e8310c8d'
+const mainContract = 'EQBCH5quQe9INUepwE6C3UuX4J9ciiu-_2Iv0LbfNJWOGMtD'
+const mainContractRaw = '0:421f9aae41ef483547a9c04e82dd4b97e09f5c8a2bbeff622fd0b6df34958e18'
 
 const retrieveHistory = async (address) => {
   const history = await tonweb.getTransactions(address);
