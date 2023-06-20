@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     getShareButton.addEventListener('click', (clickEvent) => {
       clickEvent.preventDefault()
-      getShareTransaction()
+      getShareTransaction(refAddr)
     })
   }
 

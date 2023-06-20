@@ -16,12 +16,12 @@ const retrieveHistory = async (address) => {
   console.log(history)
 }
 
-const getShareTransaction = async () => {
+const getShareTransaction = async (refAddr) => {
   const transaction = {
     validUntil: Date.now() + 1000000000,
     messages: [
       {
-        address: mainContractRaw,
+        address: refAddr,
         amount: "10000000"
       },
     ]
