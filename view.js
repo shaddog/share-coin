@@ -16,6 +16,7 @@ const showUserRefContract = (addr) => {
 
   activeUserSection.style.display = 'block'
   userRefSpan.textContent = contractAddressSlice(addr) + ' ❐'
+  userRefSpan.classList.remove("loading")
 
   userRefSpan.addEventListener('click', (clickEvent) => {
     clickEvent.preventDefault()
@@ -69,6 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           const dataVars = document.querySelectorAll(`[data-var=${key}]`)
           dataVars.forEach(element => {
             element.textContent = formatNumber(value)
+            element.classList.remove("loading")
           })
         } catch (err) {
           console.error(err)

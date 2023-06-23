@@ -178,6 +178,7 @@ h3 {
 }
 .userRefSpan {
   font-size: inherit;
+  font-weight: bold;
   background: transparent;
   border: 0;
   color: inherit;
@@ -250,4 +251,27 @@ h3 {
 }
 .rowActive ~ .row {
   text-decoration: none;
+}
+
+.loading:before {
+  content: '';
+  font-size: inherit;
+  animation: loading 1s linear 0s infinite;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+@keyframes loading {
+  0% {
+    content: '\\';
+  }
+  33% {
+    content: '|';
+  }
+  66% {
+    content: '/';
+  }
+  100% {
+    content: '—';
+  }
 }
