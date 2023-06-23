@@ -1,47 +1,9 @@
-const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-  manifestUrl: 'https://share.fra1.cdn.digitaloceanspaces.com/manifest.json',
-  buttonRootId: 'connectWallet',
-  uiPreferences: {
-    theme: 'DARK',
-    borderRadius: 's'
-  }
-});
-
 const tonweb = new TonWeb(new TonWeb.HttpProvider('https://toncenter.com/api/v2/jsonRPC', {apiKey: '95f7d69921d097025342890a6c4658b60902e857db60b8e8b60be3d8f1a2ad4f'}));
 const mainContract = 'EQBCvIpYxafZgLH5YHi1sOwn4OoD7dRIzn_lnfKh456agxfY'
 const mainContractRaw = '0:42bc8a58c5a7d980b1f96078b5b0ec27e0ea03edd448ce7fe59df2a1e39e9a83'
 
-const retrieveHistory = async (address) => {
-  const history = await tonweb.getTransactions(address);
-  console.log(history)
-}
-
-const getShareTransaction = async (refAddr) => {
-  const transaction = {
-    validUntil: Date.now() + 1000000000,
-    messages: [
-      {
-        address: refAddr,
-        amount: "10000000"
-      },
-    ]
-  }
-
-  try {
-      const result = await tonConnectUI.sendTransaction(transaction);
-
-      // you can use signed boc to find the transaction 
-      console.log(result)
-      const someTxData = await tonweb.getTransactions(result.boc);
-      console.log(someTxData)
-      // alert('Transaction was sent successfully', someTxData);
-  } catch (e) {
-      console.error(e);
-  }
-}
-
 const getRefAddress = async (rawAddress) => {
-  if(localStorage.getItem("userRefAddressFriendly")) return localStorage.getItem("userRefAddressFriendly")
+  // if(localStorage.getItem("userRefAddressFriendly")) return localStorage.getItem("userRefAddressFriendly")
 
   const cell = new tonweb.boc.Cell()
   cell.bits.writeAddress(new tonweb.Address(rawAddress))
@@ -64,9 +26,19 @@ const getRefAddress = async (rawAddress) => {
   
   
   // if(!localStorage.getItem("userRefAddressRaw")) localStorage.setItem("userRefAddressRaw", userRefAddressRaw)
-  localStorage.setItem("userRefAddressFriendly", userRefAddressFriendly)
+  // localStorage.setItem("userRefAddressFriendly", userRefAddressFriendly)
 
   return userRefAddressFriendly
+}
+
+const areYouIn = async (refContract) => {
+  const addressInfo = await tonweb.provider.getAddressInfo(refContract)
+
+  if(addressInfo && addressInfo?.state === 'active') {
+    return true
+  }
+
+  return false
 }
   
 const getSomeRealShit = async () => {
@@ -128,14 +100,3 @@ const getSomeRealShit = async () => {
 
   return someRealShit
 }
-      
-const unsubscribe = tonConnectUI.onStatusChange(
-  async (walletInfo) => {
-    // await getRefAddress(walletInfo.account.address)
-  }
-);
-
-(async function noName() {
-  // await retrieveHistory(mainContract)
-  // await getSomeRealShit()
-})()

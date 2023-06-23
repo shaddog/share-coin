@@ -145,10 +145,8 @@ h3 {
   transform: translate3d(3px, 3px, 3px) !important;
 }
 
-.getShareSection {
+.newUserSection, .activeUserSection {
   display: none;
-  /* width: 600px; */
-  /* display: flex; */
 }
 .getShareButton {
   font-family: inherit;
@@ -176,9 +174,9 @@ h3 {
 }
 
 .inviteContract { 
-  font-size: 2em;
+  font-size: 20px;
 }
-.inviteContractCopy {
+.userRefSpan {
   font-size: inherit;
   background: transparent;
   border: 0;

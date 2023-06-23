@@ -45,20 +45,31 @@
     <main>
       <p>Sharecoin is a&nbsp;digital currency that operates on&nbsp;smart-contracts and&nbsp;follow the&nbsp;principles of&nbsp;the&nbsp;decentralization. Anyone can get $SHARE as&nbsp;reward for&nbsp;inviting other people into the &nbsp;decentralized finances.</p>
       
-      <section class="getShareSection">
+      <section class="newUserSection">
         <hr class="divider">
         <p class="inviteContract">
-          Invitation contract
-          <button class="inviteContractCopy" id="copyContractButton">checking blockchain...</button>
+          You've been invited by
+          <span class="newUserInviter"></span>
         </p>
         <p>
-          To get $SHARE and generate your invitation contract, you need to send 10 $TON from your wallet. <br>
-          Please make sure that you are sending coins from non-custodial wallet
+          To get $SHARE and generate your invitation contract, you need to send 10 $TON from your wallet.
         </p>
         <div class="getShare">
           <button id="getShareButton" class="getShareButton">Get SHARE</button>
           <p>10 TON <-> <span data-var="reward">parsing...</span> $SHARE</p>
         </div>
+      </section>
+
+      <section class="activeUserSection">
+        <hr class="divider">
+        <p class="inviteContract">
+          Your invitation contract
+          <button id="userRefSpan" class="userRefSpan">checking blockchain...</button>
+        </p>
+        <p>
+          Share your invitation contract with friends and peers.<br>
+          As soon as they will send <b>10 $TON</b> to your <i>invitation contract</i>, you both will get <b><span data-var="reward">parsing...</span> $SHARE</b>
+        </p>
       </section>
 
       <hr class="divider">
@@ -246,5 +257,6 @@
   <script src="./blockchain.js"></script>
   <script src="./utils.js"></script>
   <script src="./view.js"></script>
+  <script src="./wallet.js"></script>
 </html>
       
