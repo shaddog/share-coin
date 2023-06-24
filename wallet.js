@@ -8,6 +8,9 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 });
 
 const getShareTransaction = async (refAddr) => {
+  if (!tonConnectUI.wallet) {
+    return await tonConnectUI.connectWallet()
+  }
   const transaction = {
     validUntil: Date.now() + 1000000000,
     messages: [
