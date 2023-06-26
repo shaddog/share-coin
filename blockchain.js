@@ -1,6 +1,6 @@
 const tonweb = new TonWeb(new TonWeb.HttpProvider('https://toncenter.com/api/v2/jsonRPC', {apiKey: '95f7d69921d097025342890a6c4658b60902e857db60b8e8b60be3d8f1a2ad4f'}));
-const mainContract = 'EQBCvIpYxafZgLH5YHi1sOwn4OoD7dRIzn_lnfKh456agxfY'
-const mainContractRaw = '0:42bc8a58c5a7d980b1f96078b5b0ec27e0ea03edd448ce7fe59df2a1e39e9a83'
+const mainContract = 'EQDsh-h3cHtc3FjeTz8oMLsRjlekFih6b6zphKGK0RRYDeG-'
+const mainContractRaw = '0:ec87e877707b5cdc58de4f3f2830bb118e57a416287a6face984a18ad114580d'
 
 const getRefAddress = async (rawAddress) => {
   // if(localStorage.getItem("userRefAddressFriendly")) return localStorage.getItem("userRefAddressFriendly")
