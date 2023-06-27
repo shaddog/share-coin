@@ -48,7 +48,7 @@ export const showUserRef = () => {
 
   userRefSpan.addEventListener('click', (clickEvent) => {
     clickEvent.preventDefault()
-    const prevTextContent = userRefSpan.textContent
+    const prevTextContent = userRefSpan.textContent.split('copied')[0]
 
     copyToClipboard(window.location.href)
     userRefSpan.innerHTML = prevTextContent + '<small class="smallCopy"> copied</small>'
