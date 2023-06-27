@@ -5,7 +5,6 @@ export const verifyUser = async (userAddress) => {
   const userFriendlyAddress = rawAddressToFriendly(userAddress)
   const userRefAddress = await getRefAddress(userAddress)
   const isUserRefActive = await areYouIn(userRefAddress)
-  console.log(isUserRefActive)
 
   if(userRefAddress && isUserRefActive) {
     window.location.hash = userFriendlyAddress

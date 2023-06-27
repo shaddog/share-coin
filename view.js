@@ -18,7 +18,6 @@ const strikeThroughTheTable = (currentReward) => {
 }
 
 export const fillInPageInfo = (values) => {
-  console.log(values)
   for (const key in values) {
     if (Object.hasOwnProperty.call(values, key)) {
       const value = values[key]
