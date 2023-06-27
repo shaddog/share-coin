@@ -145,7 +145,7 @@ h3 {
   transform: translate3d(3px, 3px, 3px) !important;
 }
 
-.newUserSection, .activeUserSection {
+.userRefSection, .inviterRefSection {
   display: none;
 }
 .getShareButton {

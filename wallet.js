@@ -1,13 +1,15 @@
-const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-  manifestUrl: 'https://share.fra1.cdn.digitaloceanspaces.com/manifest.json',
-  buttonRootId: 'connectWallet',
-  uiPreferences: {
-    theme: 'DARK',
-    borderRadius: 's'
-  }
-});
+export const initWallet = () => {
+  return window.tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+    manifestUrl: 'https://share.fra1.cdn.digitaloceanspaces.com/manifest.json',
+    buttonRootId: 'connectWallet',
+    uiPreferences: {
+      theme: 'DARK',
+      borderRadius: 's'
+    }
+  })
+}
 
-const getShareTransaction = async (refAddr) => {
+export const getShareTransaction = async (refAddr) => {
   if (!tonConnectUI.wallet) {
     return await tonConnectUI.connectWallet()
   }
@@ -33,14 +35,3 @@ const getShareTransaction = async (refAddr) => {
       console.error(e);
   }
 }
-
-const unsubscribe = tonConnectUI.onStatusChange(
-  async (walletInfo) => {
-    const refContract = await getRefAddress(walletInfo.account.address)
-    const isRefContractActive = await areYouIn(refContract)
-
-    if(refContract && isRefContractActive) {
-      showUserRefContract(refContract)
-    }
-  }
-)

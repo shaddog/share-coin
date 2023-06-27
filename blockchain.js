@@ -2,9 +2,7 @@ const tonweb = new TonWeb(new TonWeb.HttpProvider('https://toncenter.com/api/v2/
 const mainContract = 'EQDsh-h3cHtc3FjeTz8oMLsRjlekFih6b6zphKGK0RRYDeG-'
 const mainContractRaw = '0:ec87e877707b5cdc58de4f3f2830bb118e57a416287a6face984a18ad114580d'
 
-const getRefAddress = async (rawAddress) => {
-  // if(localStorage.getItem("userRefAddressFriendly")) return localStorage.getItem("userRefAddressFriendly")
-
+export const getRefAddress = async (rawAddress) => {
   const cell = new tonweb.boc.Cell()
   cell.bits.writeAddress(new tonweb.Address(rawAddress))
   
@@ -23,15 +21,15 @@ const getRefAddress = async (rawAddress) => {
   const userRefAddress = responseSlice.loadAddress()
   // const userRefAddressRaw = userRefAddress.toString()
   const userRefAddressFriendly = userRefAddress.toString(true, true, true, false) //check params https://github.com/toncenter/tonweb/blob/master/src/utils/Address.js#L109
-  
-  
-  // if(!localStorage.getItem("userRefAddressRaw")) localStorage.setItem("userRefAddressRaw", userRefAddressRaw)
-  // localStorage.setItem("userRefAddressFriendly", userRefAddressFriendly)
 
   return userRefAddressFriendly
 }
 
-const areYouIn = async (refContract) => {
+export const rawAddressToFriendly = (rawAddress) => {
+  return new tonweb.Address(rawAddress).toString(true, true, true)
+}
+
+export const areYouIn = async (refContract) => {
   const addressInfo = await tonweb.provider.getAddressInfo(refContract)
 
   if(addressInfo && addressInfo?.state === 'active') {
@@ -41,7 +39,7 @@ const areYouIn = async (refContract) => {
   return false
 }
   
-const getSomeRealShit = async () => {
+export const getSomeRealSh = async () => {
   // Share minted
   // common: get_balances.stack[0]
   
@@ -62,7 +60,7 @@ const getSomeRealShit = async () => {
   
   // Table where are we now
   // get_current_reward
-  const someRealShit = {
+  const someRealSh = {
     'peopleInvited': '',
     'sharesMinted': '',
     'reward': '',
@@ -89,14 +87,13 @@ const getSomeRealShit = async () => {
     'get_burn_price'
   )
   
-  someRealShit['peopleInvited'] = parseInt(getInvites.stack[0][1], 16).toString() 
-  someRealShit['sharesMinted'] = tonweb.utils.fromNano(parseInt(getBalances.stack[0][1], 16).toString())
-  someRealShit['burned'] = tonweb.utils.fromNano(parseInt(getBalances.stack[1][1], 16).toString())
-  someRealShit['treasuryFund'] = tonweb.utils.fromNano(parseInt(getBalances.stack[2][1], 16).toString())
-  someRealShit['totalEmission'] = tonweb.utils.fromNano(parseInt(getBalances.stack[3][1], 16).toString())
-  someRealShit['reward'] = tonweb.utils.fromNano((parseInt(getCurrentReward.stack[0][1], 16)/2).toString())
-  someRealShit['oneShareInTonRate'] = tonweb.utils.fromNano(parseInt(getCurrentRate.stack[0][1], 16).toString())
-  someRealShit['amountOfShareForOneTon'] = 1 / Number(someRealShit['oneShareInTonRate'])
+  someRealSh['peopleInvited'] = parseInt(getInvites.stack[0][1], 16).toString() 
+  someRealSh['sharesMinted'] = tonweb.utils.fromNano(parseInt(getBalances.stack[0][1], 16).toString())
+  someRealSh['burned'] = tonweb.utils.fromNano(parseInt(getBalances.stack[1][1], 16).toString())
+  someRealSh['treasuryFund'] = tonweb.utils.fromNano(parseInt(getBalances.stack[2][1], 16).toString())
+  someRealSh['totalEmission'] = tonweb.utils.fromNano(parseInt(getBalances.stack[3][1], 16).toString())
+  someRealSh['reward'] = tonweb.utils.fromNano((parseInt(getCurrentReward.stack[0][1], 16)/2).toString())
+  someRealSh['amountOfShareForOneTon'] = parseInt(getCurrentRate.stack[0][1], 16).toString()
 
-  return someRealShit
+  return someRealSh
 }

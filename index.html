@@ -17,7 +17,7 @@
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+New&display=swap" /> -->
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+New:wght@600&display=swap"> -->
   <link rel="stylesheet" href="style.css" type="text/css">
-  <link rel="shortcut icon" type="image/svg" href="./logo.svg"/>
+  <link rel="shortcut icon" type="image/svg" href="./logo.png"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <script defer data-domain="shareco.in" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -45,11 +45,11 @@
     <main>
       <p>Sharecoin is a&nbsp;digital currency that operates on&nbsp;smart-contracts and&nbsp;follow the&nbsp;principles of&nbsp;the&nbsp;decentralization. Anyone can get $SHARE as&nbsp;reward for&nbsp;inviting other people into the &nbsp;decentralized finances.</p>
       
-      <section class="newUserSection">
+      <section class="inviterRefSection">
         <hr class="divider">
-        <p class="inviteContract">
+        <p class="inviterContract">
           You've been invited by
-          <span class="newUserInviter"></span>
+          <span class="inviterRefSpan"></span>
         </p>
         <p>
           To get $SHARE and generate your invitation contract, you need to send 10 $TON from your wallet.
@@ -60,9 +60,9 @@
         </div>
       </section>
 
-      <section class="activeUserSection">
+      <section class="userRefSection">
         <hr class="divider">
-        <p class="inviteContract">
+        <p class="userContract">
           Your invitation contract <button id="userRefSpan" class="userRefSpan loading">loading</button>
         </p>
         <p>
@@ -252,10 +252,11 @@
   </body>
   <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
   <script src="./tonweb.js"></script>
-  <script src="./main.js"></script>
-  <script src="./blockchain.js"></script>
-  <script src="./utils.js"></script>
-  <script src="./view.js"></script>
-  <script src="./wallet.js"></script>
+  <script src="./blockchain.js" type="module"></script>
+  <script src="./utils.js" type="module"></script>
+  <script src="./view.js" type="module"></script>
+  <script src="./wallet.js" type="module"></script>
+  <script src="./verify.js" type="module"></script>
+  <script src="./main.js" type="module"></script>
 </html>
       
