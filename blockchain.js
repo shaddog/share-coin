@@ -40,26 +40,6 @@ export const areYouIn = async (refContract) => {
 }
   
 export const getSomeRealSh = async () => {
-  // Share minted
-  // common: get_balances.stack[0]
-  
-  // Current reward per 1 invite
-  // common: get_current_reward
-  
-  // $TON on Treasury Contract
-  // common: get_balances.stack[2]
-  
-  // Burned already
-  // common: get_balances.stack[1]
-  
-  // Total emission
-  // common: get_balances.stack[4]
-  
-  // Current rate
-  // 1 $SHARE = get_burn_price TON
-  
-  // Table where are we now
-  // get_current_reward
   const someRealSh = {
     'peopleInvited': '',
     'sharesMinted': '',
@@ -67,7 +47,7 @@ export const getSomeRealSh = async () => {
     'treasuryFund': '',
     'burned': '',
     'totalEmission': '',
-    'oneShareInTonRate': '',
+    'amountOfShareForOneTon': '',
   }
   
   const getInvites = await tonweb.call(

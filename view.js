@@ -38,19 +38,19 @@ export const fillInPageInfo = (values) => {
   strikeThroughTheTable(values['reward'])
 }
 
-export const showUserRef = (addr) => {
+export const showUserRef = () => {
   const userRefSection = document.querySelector('.userRefSection')
   const userRefSpan = document.querySelector('.userRefSpan')
 
   userRefSection.style.display = 'block'
-  userRefSpan.textContent = contractAddressSlice(addr) + ' ❐'
+  userRefSpan.textContent = `link ❐`
   userRefSpan.classList.remove("loading")
 
   userRefSpan.addEventListener('click', (clickEvent) => {
     clickEvent.preventDefault()
     const prevTextContent = userRefSpan.textContent
 
-    copyToClipboard(addr)
+    copyToClipboard(window.location.href)
     userRefSpan.innerHTML = prevTextContent + '<small class="smallCopy"> copied</small>'
     setTimeout(() => {
       userRefSpan.textContent = prevTextContent

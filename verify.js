@@ -1,8 +1,6 @@
 import { getRefAddress, areYouIn, rawAddressToFriendly } from "./blockchain.js"
 import { showUserRef, showInviterRef } from "./view.js"
 
-// export const verify
-
 export const verifyUser = async (userAddress) => {
   const userFriendlyAddress = rawAddressToFriendly(userAddress)
   const userRefAddress = await getRefAddress(userAddress)
