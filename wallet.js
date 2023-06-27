@@ -26,6 +26,7 @@ export const getShareTransaction = async (refAddr) => {
   try {
     const result = await tonConnectUI.sendTransaction(transaction);
 
+    setTimeout(() => {window.location.reload()}, 1000)
     // you can use signed boc to find the transaction 
     // console.log(result)
     // const someTxData = await tonweb.getTransactions(result.boc);
